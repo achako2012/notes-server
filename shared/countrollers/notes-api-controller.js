@@ -4,8 +4,7 @@ let notes = staticNotes;
 export const getAllNotes = async (req, res) => {
     try {
         return res.status(200).json({ notes });
-    }
-    catch (e) {
+    } catch (e) {
         return res.status(500).json({ message: 'Something went wrong' });
     }
 };
@@ -21,8 +20,7 @@ export const createNote = async (req, res) => {
         const note = req.body;
         notes = [...notes, note];
         return res.status(201).json({ note });
-    }
-    catch (e) {
+    } catch (e) {
         return res.status(500).json({ message: 'Something went wrong' });
     }
 };
@@ -40,8 +38,7 @@ export const deleteNote = async (req, res) => {
         return res.status(200).json({
             message: `note with id: ${id} deleted`
         });
-    }
-    catch (e) {
+    } catch (e) {
         return res.status(500).json({ message: 'Something went wrong' });
     }
 };
