@@ -1,5 +1,5 @@
 import { validationResult } from 'express-validator';
-import notes from "../notes.js";
+import notes from '../notes.js';
 export const getNotes = async (req, res) => {
     try {
         const errors = validationResult(req);
@@ -15,8 +15,7 @@ export const getNotes = async (req, res) => {
                 notes
             }
         });
-    }
-    catch (e) {
+    } catch (e) {
         return res.status(500).json({ message: 'Something went wrong' });
     }
 };

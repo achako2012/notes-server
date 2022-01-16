@@ -3,8 +3,8 @@ const notes = [
         id: 5681,
         name: 'Alex',
         created: '12.01.2022',
-        category: "Quote",
-        status: "Active",
+        category: 'Quote',
+        status: 'Active',
         content: 'Lorem Ipsum',
         dates: '3/5/2021, 5/6/2020'
     },
@@ -12,8 +12,8 @@ const notes = [
         id: 3626,
         name: 'Alex',
         created: '12.01.2022',
-        category: "Task",
-        status: "Active",
+        category: 'Task',
+        status: 'Active',
         content: 'Lorem Ipsum',
         dates: '3/5/2021, 5/6/2020'
     }
