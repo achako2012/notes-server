@@ -1,19 +1,35 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
-import { getNotes } from '../countrollers/notes-api-controller.js';
+import { createNote, deleteNote, getAllNotes } from '../countrollers/notes-api-controller.js';
 
 const router = Router();
 
-const registrationValidator = [
-    check('email', "Email isn't valid").isEmail(),
-    check('password', 'Password is to short').isLength({ min: 6 })
+const creatingNoteValidator = [
+    check('id').exists().withMessage("Id isn't exist").notEmpty().withMessage("Shouldn't be empty"),
+    check('name').exists().withMessage("Name isn't exist"),
+    check('created').exists().withMessage("Created isn't exist"),
+    check('category')
+        .exists()
+        .withMessage("Category isn't exist")
+        .notEmpty()
+        .withMessage("Shouldn't be empty"),
+    check('status')
+        .exists()
+        .withMessage("Status isn't exist")
+        .notEmpty()
+        .withMessage("Shouldn't be empty"),
+    check('content').exists().withMessage("Content isn't exist"),
+    check('dates').exists().withMessage("Dates isn't exist")
 ];
 
-// const loginValidator = [
-//     check('email', 'Type valid email').normalizeEmail().isEmail(),
-//     check('password', 'Type valid password').exists()
-// ];
+const deleteNoteValidator = [
+    check('id').exists().withMessage("Id isn't exist").notEmpty().withMessage("Shouldn't be empty")
+];
 
-router.post('/notes/get', registrationValidator, getNotes);
+router.get('/notes', getAllNotes);
+
+router.post('/notes', creatingNoteValidator, createNote);
+
+router.delete('/notes', deleteNoteValidator, deleteNote);
 
 export default router;

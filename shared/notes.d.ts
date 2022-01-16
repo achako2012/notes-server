@@ -1,10 +1,3 @@
-declare const notes: {
-    id: number;
-    name: string;
-    created: string;
-    category: string;
-    status: string;
-    content: string;
-    dates: string;
-}[];
-export default notes;
+import { Note } from './types.js';
+declare const staticNotes: Note[];
+export default staticNotes;

@@ -1,7 +1,6 @@
-import express from 'express';
 import bodyParser from 'body-parser';
+import express from 'express';
 import cors from 'cors';
-import middlewares from './middlewares.js';
 import notesRoutes from './routes/notes.js';
 
 const server = express();
@@ -17,9 +16,6 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 
 server.use(cors(options));
-
-server.use(middlewares.requestTime);
-server.use(middlewares.logger);
 
 const baseService = '/notes-app-service';
 

@@ -1,6 +1,21 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare namespace Express {
-    export interface Request {
-        requestTime: number;
-    }
+export interface Note {
+    id: number;
+    name: string;
+    created: string;
+    category: NoteCategory;
+    status: NoteStatus;
+    content: string;
+    dates: string;
+}
+
+export enum NoteCategory {
+    Task = 'Task',
+    Idea = 'Idea',
+    Quote = 'Quote',
+    Random = 'Random Thought'
+}
+
+export enum NoteStatus {
+    Active = 'active',
+    Archived = 'archived'
 }
