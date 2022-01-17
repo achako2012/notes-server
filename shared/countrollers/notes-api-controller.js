@@ -12,22 +12,21 @@ export const getNoteStats = async (req, res) => {
         return res.status(200).json({
             totalNotes: notes.length,
             totalActive: tasks.active + ideas.active + quotes.active + randomThoughts.active,
-            totalArchived: tasks.archived + ideas.archived + quotes.archived + randomThoughts.archived,
+            totalArchived:
+                tasks.archived + ideas.archived + quotes.archived + randomThoughts.archived,
             tasks,
             ideas,
             quotes,
             randomThoughts
         });
-    }
-    catch (e) {
+    } catch (e) {
         return res.status(500).json({ message: 'Something went wrong' });
     }
 };
 export const getAllNotes = async (req, res) => {
     try {
         return res.status(200).json({ notes });
-    }
-    catch (e) {
+    } catch (e) {
         return res.status(500).json({ message: 'Something went wrong' });
     }
 };
@@ -43,8 +42,7 @@ export const getNoteById = async (req, res) => {
         const { id } = req.params;
         const noteWithId = notes.find((elem) => elem.id === +id);
         return res.status(200).json({ noteWithId });
-    }
-    catch (e) {
+    } catch (e) {
         return res.status(500).json({ message: 'Something went wrong' });
     }
 };
@@ -60,8 +58,7 @@ export const createNote = async (req, res) => {
         const note = req.body;
         notes = [...notes, note];
         return res.status(201).json({ note });
-    }
-    catch (e) {
+    } catch (e) {
         return res.status(500).json({ message: 'Something went wrong' });
     }
 };
@@ -79,8 +76,7 @@ export const deleteNote = async (req, res) => {
         return res.status(200).json({
             message: `note with id: ${id} deleted`
         });
-    }
-    catch (e) {
+    } catch (e) {
         return res.status(500).json({ message: 'Something went wrong' });
     }
 };
@@ -101,8 +97,7 @@ export const editNote = async (req, res) => {
             return elem;
         });
         return res.status(200).json({ notes });
-    }
-    catch (e) {
+    } catch (e) {
         return res.status(500).json({ message: 'Something went wrong' });
     }
 };
