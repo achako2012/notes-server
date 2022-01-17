@@ -1,6 +1,13 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
-import { createNote, deleteNote, editNote, getAllNotes, getNoteById, getNoteStats } from '../countrollers/notes-api-controller.js';
+import {
+    createNote,
+    deleteNote,
+    editNote,
+    getAllNotes,
+    getNoteById,
+    getNoteStats
+} from '../countrollers/notes-api-controller.js';
 const router = Router();
 const noteValidator = [
     check('id').exists().withMessage("Id isn't exist").notEmpty().withMessage("Shouldn't be empty"),
