@@ -7,7 +7,7 @@ import {
     getAllNotes,
     getNoteById,
     getNoteStats
-} from '../countrollers/notes-api-controller.js';
+} from '../controllers/notes-api-controller.js';
 
 const router = Router();
 
