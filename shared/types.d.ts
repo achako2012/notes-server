@@ -17,3 +17,7 @@ export declare enum NoteStatus {
     Active = 'active',
     Archived = 'archived'
 }
+export interface CategoryCounter {
+    active: number;
+    archived: number;
+}
