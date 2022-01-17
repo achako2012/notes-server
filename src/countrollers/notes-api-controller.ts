@@ -49,9 +49,9 @@ export const getNoteById = async (req: Request, res: Response) => {
 
         const { id } = req.params;
 
-        const noteWithId = notes.find((elem) => elem.id === +id);
+        const { ...note } = notes.find((elem) => elem.id === +id);
 
-        return res.status(200).json({ noteWithId });
+        return res.status(200).json({ note });
     } catch (e) {
         return res.status(500).json({ message: 'Something went wrong' });
     }
@@ -115,7 +115,7 @@ export const editNote = async (req: Request, res: Response) => {
 
         notes = notes.map((elem: Note) => {
             if (elem.id === note.id) {
-                return { ...notes, ...note };
+                return note;
             }
             return elem;
         });

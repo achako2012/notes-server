@@ -4,7 +4,8 @@ export const countCategories = (arr, searchKey) => {
         if (currentValue.category === searchKey) {
             if (currentValue.status === 'active') {
                 accumulator.active += 1;
-            } else {
+            }
+            else {
                 accumulator.archived += 1;
             }
         }
