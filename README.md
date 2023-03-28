@@ -31,3 +31,9 @@ npm run compile
 ```
 npm run start
 ```
+
+## Request example
+```curl
+curl --location --request GET 'http://localhost:3001/notes-app-service/notes' \
+--header 'Content-Type: application/json'
+```
